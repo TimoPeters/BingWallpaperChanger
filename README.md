@@ -11,5 +11,4 @@ Only works on Linux so far.
 - [x] Create functions that find the newest and removes the oldest image in the directory
 - [x] Automate downloading the newest image in a given interval
 - [x] If the directory is bigger than 500MB -> delete the oldest image
-- [ ] Move the settings to a .json file
-- [ ] Autorun the script on boot
+- [x] Move the settings to a .json file
