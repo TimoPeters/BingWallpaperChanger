@@ -8,7 +8,7 @@ import re
 import time
 import json
 
-with open('settings.json') as file:
+with open(f'{os.path.dirname(__file__)}/settings.json') as file:
     settings = json.load(file)
 
 BING_URL = 'https://bing.com'
