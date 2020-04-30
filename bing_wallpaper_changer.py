@@ -50,7 +50,7 @@ def get_image_url(regex, html):
 
 def get_img_name(url):
     # Filter the image name from the URL
-    pattern = re.compile(r'\/th\?id=OHR\.(.*)_DE.*')
+    pattern = re.compile(r'\/th\?id=OHR\.(.*)_[A-Z]{2}.*')
     matcher = pattern.findall(url)
     return matcher[0] + '.jpg'
 
