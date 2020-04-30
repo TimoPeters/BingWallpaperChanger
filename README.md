@@ -2,13 +2,14 @@
 
 This python script will change your Wallpaper to the most recent Bing picture of the day as soon as it is available.
 
-Only works on Linux so far.
+Only works on Linux Distro's with >= Gnome 3
 
-## ToDos
-- [x] Create Regex to filter .jpg URL from bing.com html file
-- [x] Find a way to set a Wallpaper on a Linux os
-- [x] Create a regex to filter the image name from the url 
-- [x] Create functions that find the newest and removes the oldest image in the directory
-- [x] Automate downloading the newest image in a given interval
-- [x] If the directory is bigger than 500MB -> delete the oldest image
-- [x] Move the settings to a .json file
+
+## Add the script to Autostart
+1. Open your Terminal
+2. Run:
+
+        gnome-session-properties 
+3. Add the script with the command:
+
+        python3 <Path to the script>
