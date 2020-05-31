@@ -79,20 +79,25 @@ def calc_dir_size(dir_path):
 
 while True:
     # Request the bing html and filter the image URL and image name
-    print(f'Requesting data from {BING_URL}')
-    html_text = requests.get(BING_URL).text
-    image_url = get_image_url(URL_REGEX, html_text)
-    image_name = get_img_name(image_url)
+    try:
+        print(f'Requesting data from {BING_URL}')
+        html_text = requests.get(BING_URL).text
+        image_url = get_image_url(URL_REGEX, html_text)
+        image_name = get_img_name(image_url)
 
-    # Create the .bing_wallpapers directory if it doesn't exist
-    create_dir()
-    # If a new image is found -> safe the image and set it as wallpaper
-    if not os.path.exists(f'{WP_DIR_PATH}/{image_name}'):
-        fetch_picture_of_the_day(image_url, f'{WP_DIR_PATH}/{image_name}')
-        newest_image = get_newest_img(WP_DIR_PATH)
-        set_wallpaper(newest_image)
-    else:
-        print('No new image found')
+        # Create the .bing_wallpapers directory if it doesn't exist
+        create_dir()
+        # If a new image is found -> safe the image and set it as wallpaper
+        if not os.path.exists(f'{WP_DIR_PATH}/{image_name}'):
+            fetch_picture_of_the_day(image_url, f'{WP_DIR_PATH}/{image_name}')
+            newest_image = get_newest_img(WP_DIR_PATH)
+            set_wallpaper(newest_image)
+        else:
+            print('No new image found')
+    except:
+        print('A problem occurred! Trying again...')
+        time.sleep(10)
+        continue
 
     # If the .bing_wallpapers directory exceeds the max directory size -> remove the oldest file
     if calc_dir_size(WP_DIR_PATH) > MAX_DIR_SIZE:
